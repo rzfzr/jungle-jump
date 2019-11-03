@@ -37,7 +37,8 @@ namespace InfiniteHopper {
         // private Type Type1 { get => type1; set => type1 = value; }
 
         void Start () {
-            // text.text = achievementText;
+            // print (achievementText);
+            text.text = achievementText;
 
         }
 

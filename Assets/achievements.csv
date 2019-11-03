@@ -10,8 +10,8 @@ Jogue 5 Partidas,run,5
 Jogue 20 Partidas,run,20
 Colete 10 Feathers,feather,10
 Colete 30 Feathers,feather,30
-Desbloqueie o Coelhinho,unlock,PlayerBunny
-Desbloqueie o Gatinho,unlock,PlayerKitty
-Desbloqueie o Cachorrinho,unlock,PlayerDoggy
-Desbloqueie o Porquinho,unlock,PlayerPiggy
-Desbloqueie o Panda,unlock,PlayerPanda
+Desbloqueie o Coelhinho,PlayerBunny,1
+Desbloqueie o Gatinho,PlayerKitty,1
+Desbloqueie o Cachorrinho,PlayerDoggy,1
+Desbloqueie o Porquinho,PlayerPiggy,1
+Desbloqueie o Panda,PlayerPanda,1
