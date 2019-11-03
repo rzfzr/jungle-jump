@@ -1,0 +1,17 @@
+Text,Type,Value
+Faça 1000 Pontos em uma única jogada,score,1000
+Faça 5000 Pontos em uma única jogada,score,5000
+Salte 30 Plataformas,column,30
+Salte 100 Plataformas,column,100
+Colete 15 Power ups,power,15
+Colete 50 Power ups,power,50
+Acumule 30000 Pontos,totalScore,30000
+Jogue 5 Partidas,run,5
+Jogue 20 Partidas,run,20
+Colete 10 Feathers,feather,10
+Colete 30 Feathers,feather,30
+Desbloqueie o Coelhinho,unlock,PlayerBunny
+Desbloqueie o Gatinho,unlock,PlayerKitty
+Desbloqueie o Cachorrinho,unlock,PlayerDoggy
+Desbloqueie o Porquinho,unlock,PlayerPiggy
+Desbloqueie o Panda,unlock,PlayerPanda

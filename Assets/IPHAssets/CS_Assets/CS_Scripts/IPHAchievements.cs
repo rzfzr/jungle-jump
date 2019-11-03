@@ -9,27 +9,43 @@ namespace InfiniteHopper {
         /// Reference to score prefab that instantiate in list of highscores
         /// </summary>
         [SerializeField]
-        private IPHAchievement achievementPrefab;
+        private InfiniteHopper.IPHAchievement achievementPrefab;
         /// <summary>
         /// Reference to list of highscores
         /// </summary>
         [SerializeField]
         private Transform list;
 
-        // Start is called before the first frame update
+        [SerializeField]
+        public TextAsset csv;
+
+        void Start () { }
+
         void OnEnable () {
             ClearList ();
 
-            //TODO: Replace this mock data with real data.
-            string[] MockData = new string[2] { "1000 Pontos em uma unica Jogada", "5000 Pontos em uma unica jogada" };
-
-            for (int i = 0; i < MockData.Length; i++) {
-
+            string[, ] grid = CSVReader.SplitCsvGrid (csv.text);
+            for (int y = 0; y < grid.GetUpperBound (1); y++) {
                 GameObject go = Instantiate (achievementPrefab.gameObject) as GameObject;
                 go.transform.SetParent (list, false);
 
                 IPHAchievement achievement = go.GetComponent<IPHAchievement> ();
-                achievement.Achievement = MockData[i].ToString ();
+
+                // for (int x = 0; x < grid.GetUpperBound (0); x++) {
+                if (x == 0) {
+
+                    achievement.text.text = grid[x, y];
+                    // achievement.achievementText = grid[x, y];
+                } else if (x == 1) {
+                    IPHAchievement.Type type;
+                    System.Enum.TryParse ("test", true, out type);
+                    achievement.achievementType = type;
+                } else if (x == 2) {
+
+                    achievement.achievementValue = grid[x, y];
+                }
+                // }
+
             }
         }
 

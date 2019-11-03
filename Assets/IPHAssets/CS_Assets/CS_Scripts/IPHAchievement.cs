@@ -7,20 +7,38 @@ using UnityEngine.UI;
 
 namespace InfiniteHopper {
     public class IPHAchievement : MonoBehaviour {
+
+        public enum Type {
+            score,
+            column,
+            power,
+            totalScore,
+            run,
+            feather,
+            unlock
+        }
+
+        // public IPHAchievement (string text, string achievementType, string achievementValue) {
+
+        // }
+
         /// <summary>
         /// Referente to score text object
         /// </summary>
         [SerializeField]
-        private Text achievementValue;
+        public Text text;
 
         /// <summary>
         /// Value of score that show in UI
         /// </summary>
-        public string Achievement { get; set; }
+        public string achievementText { get; set; }
+        public Type achievementType;
+        public string achievementValue;
+        // private Type Type1 { get => type1; set => type1 = value; }
 
-        // Start is called before the first frame update
         void Start () {
-            achievementValue.text = Achievement;
+            // text.text = achievementText;
+
         }
 
         /// <summary>
@@ -33,5 +51,13 @@ namespace InfiniteHopper {
         // public void Replay () {
         //     Debug.LogWarning ("Load Replay");
         // }
+
+        bool CheckAchievement () {
+
+            return true;
+
+            return false;
+        }
+
     }
 }
