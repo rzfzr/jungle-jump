@@ -7,57 +7,57 @@ using UnityEngine.UI;
 
 namespace InfiniteHopper {
     public class IPHAchievement : MonoBehaviour {
-
-        public enum Type {
-            score,
-            column,
-            power,
-            totalScore,
-            run,
-            feather,
-            unlock
-        }
-
+        // public enum Type {
+        //     score,
+        //     column,
+        //     power,
+        //     totalScore,
+        //     run,
+        //     feather,
+        //     unlock
+        // }
         // public IPHAchievement (string text, string achievementType, string achievementValue) {
-
         // }
 
-        /// <summary>
-        /// Referente to score text object
-        /// </summary>
         [SerializeField]
         public Text text;
 
-        /// <summary>
-        /// Value of score that show in UI
-        /// </summary>
+        [SerializeField]
+        private Image icon;
+
         public string achievementText { get; set; }
-        public Type achievementType;
-        public string achievementValue;
+        // public Type achievementType;
+        public int achievementValue;
         // private Type Type1 { get => type1; set => type1 = value; }
 
-        void Start () {
-            // print (achievementText);
-            text.text = achievementText;
+        // public bool isAchieved;
 
+        void Start () {
+            text.text = achievementText;
+            // isAchieved = CheckAchievement ();
+            if (CheckAchievement ()) { //if unlocked then brighten the achievement icon
+                icon.GetComponent<Image> ().color = new Color32 (255, 255, 255, 255);
+            }
         }
 
-        /// <summary>
-        /// Play again the level of this score
-        /// </summary>
-        // public void PlayAgain () {
-        //     Debug.LogWarning ("Load Level");
-        // }
-
-        // public void Replay () {
-        //     Debug.LogWarning ("Load Replay");
-        // }
-
+        //check whether the achievement is unlocked or not
         bool CheckAchievement () {
+            if (GetCurrentData () >= achievementValue) return true;
+            else return false;
+        }
 
-            return true;
-
-            return false;
+        //get the current quantity of this achievement goal
+        int GetCurrentData () {
+            if (this.CompareTag ("highScore")) return IPHDataStorage.playerData.highScore;
+            else if (this.CompareTag ("longestDistance")) return IPHDataStorage.playerData.longestDistance;
+            else if (this.CompareTag ("totalPowerups")) return IPHDataStorage.playerData.totalPowerups;
+            else if (this.CompareTag ("totalScore")) return IPHDataStorage.playerData.totalScore;
+            else if (this.CompareTag ("rounds")) return IPHDataStorage.playerData.rounds;
+            else if (this.CompareTag ("tokens")) return IPHDataStorage.playerData.tokens;
+            else {
+                print ("wrong tag on Achievement");
+                return 0;
+            }
         }
 
     }

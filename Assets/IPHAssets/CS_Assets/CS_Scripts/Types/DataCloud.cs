@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace InfiniteHopper.Types
-{
+namespace InfiniteHopper.Types {
     [Serializable]
-    public class DataCloud
-    {
+    public class DataCloud {
         //Last score
         public int lastScore;
         //Current highscore

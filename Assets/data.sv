@@ -1,1 +1,1 @@
-{"lastScore":0,"highScore":0,"totalScore":0,"tokens":0,"longestDistance":0,"longestStreak":0,"totalPowerups":0,"longestPowerUpStreak":0,"rounds":0}
+{"lastScore":0,"highScore":0,"totalScore":0,"tokens":1,"longestDistance":7,"longestStreak":3,"totalPowerups":0,"longestPowerUpStreak":0,"rounds":18}
