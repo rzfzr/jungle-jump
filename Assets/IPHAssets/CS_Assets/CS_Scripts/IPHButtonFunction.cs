@@ -1,13 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace InfiniteHopper
-{
+namespace InfiniteHopper {
     /// <summary>
     /// This script executes a function on a target object. It needs to be attached to a UI Button.
     /// </summary>
-    public class IPHButtonFunction : MonoBehaviour
-    {
+    public class IPHButtonFunction : MonoBehaviour {
         // The tag of the object in which the function will run
         public string targetTag = "GameController";
 
@@ -23,25 +21,23 @@ namespace InfiniteHopper
         /// <summary>
         /// Start this instance.
         /// </summary>
-        void Start()
-        {
+        void Start () {
             // If the target object is not assigned, assign it by the tag
-            if (targetObject == null) targetObject = GameObject.FindGameObjectWithTag(targetTag);
+            if (targetObject == null) targetObject = GameObject.FindGameObjectWithTag (targetTag);
+
         }
 
         /// <summary>
         /// Executes the function at the target object, OnMouseDown
         /// </summary>
-        public void ExecuteMouseDown()
-        {
+        public void ExecuteMouseDown () {
             // Check if we have a function name
-            if (mouseDownFunction != string.Empty)
-            {
+            if (mouseDownFunction != string.Empty) {
                 // Check if there is a target object
-                if (targetObject)
-                {
+                if (targetObject) {
+
                     //Send the message to the target object, with a parameter
-                    targetObject.SendMessage(mouseDownFunction);
+                    targetObject.SendMessage (mouseDownFunction);
                 }
             }
         }
@@ -49,16 +45,13 @@ namespace InfiniteHopper
         /// <summary>
         /// Executes the function at the target object, OnMouseUp
         /// </summary>
-        public void ExecuteMouseUp()
-        {
+        public void ExecuteMouseUp () {
             // Check if we have a function name
-            if (mouseUpFunction != string.Empty)
-            {
+            if (mouseUpFunction != string.Empty) {
                 // Check if there is a target object
-                if (targetObject)
-                {
+                if (targetObject) {
                     //Send the message to the target object, with a parameter
-                    targetObject.SendMessage(mouseUpFunction);
+                    targetObject.SendMessage (mouseUpFunction);
                 }
             }
         }
