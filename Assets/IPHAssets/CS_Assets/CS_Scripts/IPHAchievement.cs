@@ -6,32 +6,32 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace InfiniteHopper {
-    public class IPHScore : MonoBehaviour {
+    public class IPHAchievement : MonoBehaviour {
         /// <summary>
         /// Referente to score text object
         /// </summary>
         [SerializeField]
-        private Text scoreValue;
+        private Text achievementValue;
 
         /// <summary>
         /// Value of score that show in UI
         /// </summary>
-        public string Score { get; set; }
+        public string Achievement { get; set; }
 
         // Start is called before the first frame update
         void Start () {
-            scoreValue.text = Score;
+            achievementValue.text = Achievement;
         }
 
         /// <summary>
         /// Play again the level of this score
         /// </summary>
-        public void PlayAgain () {
-            Debug.LogWarning ("Load Level");
-        }
+        // public void PlayAgain () {
+        //     Debug.LogWarning ("Load Level");
+        // }
 
-        public void Replay () {
-            Debug.LogWarning ("Load Replay");
-        }
+        // public void Replay () {
+        //     Debug.LogWarning ("Load Replay");
+        // }
     }
 }

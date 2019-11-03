@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace InfiniteHopper {
-    public class IPHHighscores : MonoBehaviour {
+    public class IPHAchievements : MonoBehaviour {
         /// <summary>
         /// Reference to score prefab that instantiate in list of highscores
         /// </summary>
         [SerializeField]
-        private IPHScore scorePrefab;
+        private IPHAchievement achievementPrefab;
         /// <summary>
         /// Reference to list of highscores
         /// </summary>
@@ -20,14 +20,16 @@ namespace InfiniteHopper {
         void OnEnable () {
             ClearList ();
 
-            // //TODO: Replace this mock data with real data.
-            int[] MockData = new int[10] { 2000, 700, 500, 400, 300, 200, 150, 120, 100, 100 };
+            //TODO: Replace this mock data with real data.
+            string[] MockData = new string[2] { "1000 Pontos em uma unica Jogada", "5000 Pontos em uma unica jogada" };
+
             for (int i = 0; i < MockData.Length; i++) {
-                GameObject go = Instantiate (scorePrefab.gameObject) as GameObject;
+
+                GameObject go = Instantiate (achievementPrefab.gameObject) as GameObject;
                 go.transform.SetParent (list, false);
 
-                IPHScore score = go.GetComponent<IPHScore> ();
-                score.Score = MockData[i].ToString ();
+                IPHAchievement achievement = go.GetComponent<IPHAchievement> ();
+                achievement.Achievement = MockData[i].ToString ();
             }
         }
 

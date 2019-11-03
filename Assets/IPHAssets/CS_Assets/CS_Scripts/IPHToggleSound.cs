@@ -29,7 +29,7 @@ namespace InfiniteHopper {
             if (!soundObject && soundObjectTag != string.Empty) soundObject = GameObject.FindGameObjectWithTag (soundObjectTag).transform;
 
             currentState = PlayerPrefs.GetFloat (soundObjectTag, 1);
-            print (soundObjectTag + currentState);
+            // print (soundObjectTag + currentState);
             // Set the sound in the sound source
             SetSound ();
         }
