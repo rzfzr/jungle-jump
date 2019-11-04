@@ -19,3 +19,7 @@ Desafio Oktagon
 03/11 
     <- 01:07
     - Criado um CSV com os achievements para facil alteracao depois, feito estrutura com tipagem, populado a lista
+
+    19:10 ->22:55
+    - Criado um elemento permanente para gerenciar os achievements, leitura das estaticas para popular a lista, detectando em certos triggers, ainda nao tudo testado
+    

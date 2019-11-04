@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using InfiniteHopper.Types;
 using UnityEngine;
 using UnityEngine.UI;
-
 namespace InfiniteHopper {
     public class IPHAchievements : MonoBehaviour {
         /// <summary>
@@ -16,25 +16,23 @@ namespace InfiniteHopper {
         [SerializeField]
         private Transform list;
 
-        [SerializeField]
-        public TextAsset csv;
-
-        void Start () { }
-
         void OnEnable () {
             ClearList ();
+            foreach (Achievement achievement in IPHAchievementsManager.achievements) {
 
-            string[, ] grid = CSVReader.SplitCsvGrid (csv.text);
-            for (int line = 1; line < grid.GetUpperBound (1); line++) { //starts at 1 because 0 is labels
                 GameObject go = Instantiate (achievementPrefab.gameObject) as GameObject;
                 go.transform.SetParent (list, false);
-                IPHAchievement achievement = go.GetComponent<IPHAchievement> ();
-                achievement.achievementText = grid[0, line];
-                achievement.tag = grid[1, line];
-                achievement.achievementValue = int.Parse (grid[2, line]);
+
+                IPHAchievement iphAchievement = go.GetComponent<IPHAchievement> ();
+                iphAchievement.name = achievement.name;
+                iphAchievement.isAchieved = achievement.CheckIsAchieved ();
+
+                //  new IPHAchievement (achievement.name, achievement.CheckIsAchieved ());
+                // IPHAchievement iphAchievement = go.GetComponent<IPHAchievement> ();
+
+                // achievement = go.GetComponent<IPHAchievement> ();
             }
-            // IPHAchievement.Type type;
-            // System.Enum.TryParse (grid[1, y], true, out type);
+
         }
 
         private void ClearList () {

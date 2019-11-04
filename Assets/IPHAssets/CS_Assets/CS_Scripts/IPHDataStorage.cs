@@ -1,17 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Text;
-using System.IO;
-using InfiniteHopper.Types;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using InfiniteHopper.Types;
+using UnityEngine;
 
-namespace InfiniteHopper
-{
+namespace InfiniteHopper {
     /// <summary>
     /// Class that control the storage data
     /// </summary>
-    public class IPHDataStorage : MonoBehaviour
-    {
+    public class IPHDataStorage : MonoBehaviour {
         /// <summary>
         /// Reference to singleton
         /// </summary>
@@ -24,57 +22,49 @@ namespace InfiniteHopper
         /// <summary>
         /// Create the singleton
         /// </summary>
-        private void Awake()
-        {
-            if (instance != null)
-            {
-                Destroy(gameObject);
+        private void Awake () {
+            if (instance != null) {
+                Destroy (gameObject);
                 return;
             }
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad (gameObject);
 
-            playerData = LoadData();
+            playerData = LoadData ();
         }
 
         // Use this for initialization
-        void Start()
-        {
-        }
+        void Start () { }
 
         // Update is called once per frame
-        void Update()
-        {
+        void Update () {
 
         }
 
         // Called when destroy the object
-        private void OnDestroy()
-        {
-            SaveData(playerData);    
+        private void OnDestroy () {
+            SaveData (playerData);
         }
 
         /// <summary>
         /// Save score
         /// </summary>
         /// <param name="score"></param>
-        public void AddNewHightscore(int score)
-        {
-            Debug.LogWarning("To Be Implemented");
+        public void AddNewHightscore (int score) {
+            Debug.LogWarning ("To Be Implemented");
         }
 
         /// <summary>
         /// Save the player data to json file
         /// </summary>
         /// <param name="data">Reference data to save</param>
-        public void SaveData(DataCloud data)
-        {
-            string json = JsonUtility.ToJson(data);
+        public void SaveData (DataCloud data) {
+            string json = JsonUtility.ToJson (data);
 
-            StreamWriter tw = new StreamWriter(Application.dataPath + "/data.sv");
-            tw.Write(json);
-            tw.Close();
-            Debug.Log("Saving as JSON: " + json);
+            StreamWriter tw = new StreamWriter (Application.dataPath + "/data.sv");
+            tw.Write (json);
+            tw.Close ();
+            Debug.Log ("Saving as JSON: " + json);
         }
 
         /// <summary>
@@ -82,17 +72,16 @@ namespace InfiniteHopper
         /// </summary>
         /// <param name="json">Json to load data</param>
         /// <returns>Return instance of DataCloud</returns>
-        public DataCloud LoadData()
-        {
-            if (!File.Exists(Application.dataPath + "/data.sv"))
-                return new DataCloud();
+        public DataCloud LoadData () {
+            if (!File.Exists (Application.dataPath + "/data.sv"))
+                return new DataCloud ();
 
-            TextReader tr = new StreamReader(Application.dataPath + "/data.sv");
-            string json = tr.ReadToEnd();
+            TextReader tr = new StreamReader (Application.dataPath + "/data.sv");
+            string json = tr.ReadToEnd ();
 
-            Debug.Log("Load as JSON: " + json);
+            Debug.Log ("Load as JSON: " + json);
 
-            DataCloud data = JsonUtility.FromJson<DataCloud>(json);
+            DataCloud data = JsonUtility.FromJson<DataCloud> (json);
 
             return data;
         }
@@ -100,14 +89,13 @@ namespace InfiniteHopper
         /// <summary>
         /// Delete all data save and reset profile
         /// </summary>
-        public void ResetData()
-        {
-            if (File.Exists(Application.dataPath + "/data.sv"))
-                File.Delete(Application.dataPath + "/data.sv");
+        public void ResetData () {
+            if (File.Exists (Application.dataPath + "/data.sv"))
+                File.Delete (Application.dataPath + "/data.sv");
 
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteAll ();
 
-            playerData = new DataCloud();
+            playerData = new DataCloud ();
         }
     }
 }
